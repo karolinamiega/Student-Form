@@ -1,0 +1,112 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+body{
+    background-color: #eae4e0;
+}
+form{
+    width: 902px;
+    height: 680px;
+    margin: 0 auto;
+}
+#name, #surname, #age, #phone, #email{
+    padding: 10px 35px;
+    float: left;
+    width: 45%;
+    margin-left: 220px;
+    background-color: rgb(240, 240, 240);
+    border-top-style: hidden;
+    border-left-style: hidden;
+    border-right-style: hidden;
+    border-bottom: 1px solid black;
+    text-transform: uppercase;
+}
+#name{
+    margin-top: 100px;
+}
+#surname, #age, #phone, #email{
+    margin-top: 20px;
+}
+#email{
+    margin-bottom: 20px;
+}
+#range{
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#zinios{
+    margin-top: 20px;
+    margin-left: 220px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+#group{
+    text-transform: uppercase;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 14px;
+    display: block;
+    margin-left: 220px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+#radios{
+    margin-top: 20px;
+    margin-left: 220px;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    
+}
+#radio{
+	cursor: pointer;
+	overflow: hidden;
+	margin-bottom: 0.375em;
+}
+#checkboxes{
+    margin-top: 20px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-left: 220px;
+}
+#submit{
+    border: 1px solid;
+
+}
+#program{
+    text-transform: uppercase;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 14px;
+    margin-left: 220px;
+    font-weight: bold;
+}
+#submit{
+    margin-left: 220px;
+    margin-top: 20px;
+    background-color: #eae4e0;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 0.875em;
+    font-weight: bold;
+    outline: none;
+    padding: 15px 35px;
+    text-transform: uppercase;
+  -webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+#submit:hover {
+    background: #474544;
+    color: #eae4e0;
+  }
+hr{
+    width: 472px;
+    margin-left:0px;
+    border-top: 1px solid black;
+}

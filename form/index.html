@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form>
+        <input type="text" name="name" id="name" placeholder="Vardas">
+        <input type="text" name="surname" id="surname" placeholder="Pavardė">
+        <input type="number" name="age" id="age" placeholder="Amžius" max="120" min="0">
+        <input type="tel" name="phone" id="phone" placeholder="+370">
+        <input type="email" name="email" id="email" placeholder="name@email.com">
+       
+        <label for="zinios" id="zinios">Tavo IT žinios:</label>
+        <input type="range" name="range" id="range" min="1" max="10" step="1" >
+        <output id="knowledge-output"></output>
+        <label for="radio" id="group">Grupė, kurioje mokaisi:</label>
+    <div id="radios">
+        <hr>    
+        <input type="radio" name="radio" id="radio" value="FEU 1 gr."> 
+        <label for="radio1">FEU 1 gr.</label>
+        <input type="radio" name="radio" id="radio" value="FEU 2 gr."> 
+        <label for="radio1">FEU 2 gr.</label>
+        <input type="radio" name="radio" id="radio" value="FEU 3 gr."> 
+        <label for="radio1">FEU 3 gr.</label>
+        <input type="radio" name="radio" id="radio" value="FEU 4 gr."> 
+        <label for="radio1">FEU 4 gr.</label>
+        <input type="radio" name="radio" id="radio" value="FEU 5 gr."> 
+        <label for="radio1">FEU 5 gr.</label>
+        <hr>
+    </div>
+    
+        <label for="checkboxes" id="program">Programa, kuri domina:</label>
+    <div id = "checkboxes">    
+        <hr>
+        <input type="checkbox" name="checkbox" id="checkbox" value="Python">
+        <label for="checkbox1">Python</label>
+        <input type="checkbox" name="checkbox" id="checkbox" value="Front-End">
+        <label for="checkbox1">Front-End</label>
+        <input type="checkbox" name="checkbox" id="checkbox" value="Java">
+        <label for="checkbox1">Java</label>
+        <input type="checkbox" name="checkbox" id="checkbox" value="PHP">
+        <label for="checkbox1">PHP</label>
+        <hr>
+    </div>
+        <input type="submit" name="submit" id="submit" value="Pateikti">
+    </form>
+    <h2></h2>
+
+    <div id="students-list">
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
