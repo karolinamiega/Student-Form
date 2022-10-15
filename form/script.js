@@ -28,9 +28,9 @@ form.addEventListener('submit', (event) => {
     studentList.prepend(studentItem);
     let checkbox = document.querySelector('input[name="checkbox"]:checked').value;
 
-
-    addSpan(name, surname);
-    window.setTimeout(removeSpan, 5000);
+    let createdStudentText = `Sukurtas studentas (${name} ${surname})`;
+    addSpan(createdStudentText);
+    
 
     let showInfo = document.createElement('button');
     showInfo.classList.add('show');
@@ -38,6 +38,8 @@ form.addEventListener('submit', (event) => {
 
     let deleteUser = document.createElement('button');
     deleteUser.textContent = 'Ištrinti studentą';
+
+    
 
     showInfo.addEventListener('click', (event) => {
         event.preventDefault();
@@ -57,24 +59,25 @@ form.addEventListener('submit', (event) => {
 
         showInfo.classList.toggle('show');
     });
-
+    
     deleteUser.addEventListener('click', (event) => {
         event.preventDefault();
         studentItem.remove();
-        addRemovedStudentSpan(name, surname);
-        window.setTimeout(removeRemovedStudentSpan, 3000);
+        let removedStudentText = `Studentas ${name} ${surname} ištrintas`;
+        addSpan(removedStudentText);
     })
 
     studentItem.innerHTML = `Vardas:  ${name} <br> Pavardė: ${surname} <br> Amžius: ${age} <br> Telefono numeris: <span class="hidden-area-number">****</span><br> El. paštas: <span class="hidden-area-email">****</span> <br> IT žinios: ${range} <br> Grupė: ${radio} <br> Programa, kuri domina: ${checkbox}`;
         studentItem.append(showInfo); 
         studentItem.append(deleteUser);
 
-
-    form.reset();
+       
+        
     
-    studentItem.style = `margin-top: 20px;
-                        margin-bottom: 10px;
-                        margin-left: 220px;
+    form.reset();
+
+
+    studentItem.style = `margin: 0 auto;
                         font-family: 'Montserrat', Arial, sans-serif;
                         font-size: 14px;
                         text-transform: uppercase;
@@ -122,40 +125,25 @@ range.addEventListener('change', (event) =>{
                     font-family: 'Montserrat', Arial, sans-serif;`
 });
 
-function addSpan(personName, personSurname){
+function addSpan(text){
     let message = document.createElement('span');
+    message.classList.add('span');
     h2.after(message);
-    message.innerHTML = `Sukurtas studentas (${personName} ${personSurname})`;
+    message.textContent = text;
     message.style = `color: red;
                     font-size: 12px;
                     display: block;
-                    margin-top: 20px;
-                    margin-left: 220px;
+                    width: 300px;
+                    margin: 10px auto;
                     font-family: 'Montserrat', Arial, sans-serif;
                     text-transform: uppercase;`
+                
+    setTimeout(() => {
+        message.textContent = '';
+        message.classList.remove(elementClass);
+    }, 5000);               
 }
 
-function removeSpan(){
-    let message = document.querySelector('span');
-    message.style.visibility = "hidden";
-    
-}
-function addRemovedStudentSpan(deletedName, deletedSurname){
-    let message2 = document.createElement('span');
-    h2.after(message2);
-    message2.textContent = `Studentas ${deletedName} ${deletedSurname} sėkmingai ištrintas`;
-    message2.style = `color: green;
-                    font-size: 12px;
-                    display: block;
-                    margin-top: 20px;
-                    margin-left: 220px;
-                    font-family: 'Montserrat', Arial, sans-serif;
-                    text-transform: uppercase;`
-}
-function removeRemovedStudentSpan(){
-    let message2 = document.querySelector('span');
-    message2.style.visibility = "hidden";
-}
 
 
 
