@@ -28,6 +28,37 @@ form.addEventListener('submit', (event) => {
     studentList.prepend(studentItem);
     let checkbox = document.querySelector('input[name="checkbox"]:checked').value;
 
+    let inputErrorMessages = event.target.querySelectorAll('.alert-message');
+   
+    inputErrorMessages.forEach((message) => {
+        message.remove();
+    })
+
+
+    let requiredInput = event.target.querySelectorAll('.required');
+
+    let formIsValid = true;
+
+    requiredInput.forEach((input) => {
+        if(!input.value){
+            formIsValid = false;
+            input.style = `border-color: red;`
+
+            let alertMessage = document.createElement('span');
+            alertMessage.textContent = 'Šis laukelis yra privalomas';
+            alertMessage.classList.add('alert-message');
+
+            input.after(alertMessage);
+        }    
+        
+});
+
+    if(!formIsValid){
+        let errorMessage = 'Visi laukai privalo būti užpildyti!'
+        addSpan(errorMessage, 'color-red');
+        return;
+    }
+    
     let createdStudentText = `Sukurtas studentas (${name} ${surname})`;
     addSpan(createdStudentText);
     
@@ -39,7 +70,6 @@ form.addEventListener('submit', (event) => {
     let deleteUser = document.createElement('button');
     deleteUser.textContent = 'Ištrinti studentą';
 
-    
 
     showInfo.addEventListener('click', (event) => {
         event.preventDefault();
@@ -71,11 +101,28 @@ form.addEventListener('submit', (event) => {
         studentItem.append(showInfo); 
         studentItem.append(deleteUser);
 
-       
-        
-    
     form.reset();
-
+    function addSpan(text, elementClass){
+        let message = document.createElement('span');
+        message.classList.add('span');
+        h2.after(message);
+        message.textContent = text;
+        if(elementClass){
+        message.classList.add(elementClass);
+        }
+        message.style = `font-size: 12px;
+                        display: block;
+                        width: 300px;
+                        margin: 10px auto;
+                        font-family: 'Montserrat', Arial, sans-serif;
+                        text-transform: uppercase;`
+                    
+        setTimeout(() => {
+            message.textContent = '';
+            message.classList.remove('span');
+            message.classList.remove(elementClass);
+        }, 5000);               
+    }
 
     studentItem.style = `margin: 0 auto;
                         font-family: 'Montserrat', Arial, sans-serif;
@@ -121,28 +168,13 @@ range.addEventListener('change', (event) =>{
 
     range.after(output);
     output.innerHTML = range.value;
-    output.style = `margin-left: 5px;
+    output.style = `float: left;
+                    margin-top: 20px;
+                    margin-left: 5px;
                     font-family: 'Montserrat', Arial, sans-serif;`
 });
 
-function addSpan(text){
-    let message = document.createElement('span');
-    message.classList.add('span');
-    h2.after(message);
-    message.textContent = text;
-    message.style = `color: red;
-                    font-size: 12px;
-                    display: block;
-                    width: 300px;
-                    margin: 10px auto;
-                    font-family: 'Montserrat', Arial, sans-serif;
-                    text-transform: uppercase;`
-                
-    setTimeout(() => {
-        message.textContent = '';
-        message.classList.remove(elementClass);
-    }, 5000);               
-}
+
 
 
 
