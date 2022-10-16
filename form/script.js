@@ -40,19 +40,58 @@ form.addEventListener('submit', (event) => {
     let formIsValid = true;
 
     requiredInput.forEach((input) => {
+
+        input.removeAttribute('style');
+
         if(!input.value){
             formIsValid = false;
             input.style = `border-color: red;`
-
             let alertMessage = document.createElement('span');
             alertMessage.textContent = 'Šis laukelis yra privalomas';
             alertMessage.classList.add('alert-message');
 
             input.after(alertMessage);
-        }    
-        
+        } else if(input.name === 'name'){
+            if(input.value.length < 3){
+            formIsValid = false;
+            inputValidation(input, 'Vardas privalo būti bent 3 simbolių ilgumo');
+            }
+        } else if(input.name === 'surname'){
+            if(input.value.length < 3){
+            formIsValid = false;
+            inputValidation(input, 'Pavardė privalo būti bent 3 simbolių ilgumo');
+            }
+        } else if(input.name === 'age'){
+            if(input.value < 0){
+            formIsValid = false;
+            inputValidation(input, 'Amžius privalo būti teigiamas skaičius');
+            } else if(input.value > 120){
+                formIsValid = false;
+                inputValidation(input, 'Įvestas amžius yra per didelis');
+            }
+        } else if(input.name === 'phone'){
+            if(input.value.length < 9 || input.value.length > 12){
+                formIsValid = false;
+                inputValidation(input, 'Įvestas telefono numeris yra neteisingas');
+            }
+        } else if(input.name === 'email'){
+            let atposition = input.value.indexOf('@');
+            let dotposition = input.value.lastIndexOf('.');
+            if(input.value < 8 || atposition < 1 || dotposition === -1){
+                formIsValid = false;
+                inputValidation(input, 'Įvestas elektroninis paštas yra neteisingas');
+            }
+        }
+        function inputValidation(input, text){
+            input.style = `border-color: red;`
+            let alertMessage = document.createElement('span');
+            alertMessage.textContent = text;
+            input.classList.add('border-red');
+            alertMessage.classList.add('alert-message');
+            input.after(alertMessage);
+        }
 });
-
+    
     if(!formIsValid){
         let errorMessage = 'Visi laukai privalo būti užpildyti!'
         addSpan(errorMessage, 'color-red');

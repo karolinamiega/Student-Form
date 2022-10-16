@@ -127,3 +127,6 @@ hr{
     font-size: 12px;
     font-family: 'Montserrat', Arial, sans-serif;
 }
+.border-red{
+    border-color: red;
+}
